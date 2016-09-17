@@ -15,14 +15,20 @@ const adjectives = [
     'falmende',
     'absolut',
     'resonerende',
-    'eksalteret',
-    'falleret',
+    // 'eksalteret',
+    // 'falleret',
+    // 'ophøjet',
+    // 'ublu',
     'sårbar',
     'trist',
     'varsom',
     'varm',
     'lilla',
-    'galaktisk'
+    'galaktisk',
+    'hungrende',
+    'luftig',
+    'fragmenteret',
+    'forfløjen'
 ];
 
 const en = [
@@ -43,6 +49,8 @@ const en = [
     'planet',
     'tanke',
     'kongeørn',
+    'fabrik',
+    'stødpude'
 ];
 
 const et = [
@@ -52,15 +60,16 @@ const et = [
     'omsvøb',
     'ønske',
     'sind',
-    'vers',
+    'vers'
 ];
 
+
 $(() => {
-    function pick(array) {
-        let index = Math.round(Math.random() * (array.length - 1));
-        console.log(index)
-        console.log(array[index]);
-        return array[index];
+    function pick(words) {
+        let index = Math.round(Math.random() * (words.length - 1));
+        let word = words[index];
+        words.splice(index, 1); // remove picked word from array
+        return word;
     }
 
     if (adjectives.length !== en.length + et.length) {
@@ -68,9 +77,14 @@ $(() => {
         return;
     }
 
-    let poem = '';
-    for (let i = 0; i < 210; i++) {
-        poem += 'en ' + pick(adjectives) + ' ' + pick(en) + ' <br>';
+    let poem = '',
+        adjective = pick(adjectives),
+        noun = pick(en);
+
+    while (adjective && noun) {
+        poem += 'en ' + adjective + ' ' + noun + ' <br>';
+        adjective = pick(adjectives);
+        noun = pick(en);
     }
 
     $('#digt').append(poem)
