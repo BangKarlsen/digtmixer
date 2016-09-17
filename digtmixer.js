@@ -1,71 +1,70 @@
-const adjectives = [
-    'absolut',
-    'falmende',
-    'finurlig',
-    'flygtig',
-    'forbigående',
-    'forfløjen',
-    'forkert',
-    'fragmenteret',
-    'galaktisk',
-    'hungrende',
-    'kold',
-    'langsom',
-    'lilla',
-    'luftig',
-    'opgivende',
-    'oprigtig',
-    'resonerende',
-    'sidste',
-    'stille',
-    'sårbar',
-    'søvnig',
-    'trist',
-    'tøvende',
-    'unaturlig',
-    'varm',
-    'varsom',
-    // 'eksalteret',
-    // 'falleret',
-    // 'ophøjet',
-    // 'ublu',
-];
+(function () {
+    const adjectives = [
+        'absolut',
+        'falmende',
+        'finurlig',
+        'flygtig',
+        'forbigående',
+        'forfløjen',
+        'forkert',
+        'fragmenteret',
+        'galaktisk',
+        'hungrende',
+        'kold',
+        'langsom',
+        'lilla',
+        'luftig',
+        'opgivende',
+        'oprigtig',
+        'resonerende',
+        'sidste',
+        'stille',
+        'sårbar',
+        'søvnig',
+        'trist',
+        'tøvende',
+        'unaturlig',
+        'varm',
+        'varsom',
+        // 'eksalteret',
+        // 'falleret',
+        // 'ophøjet',
+        // 'ublu',
+    ];
 
-const en = [
-    'dans',
-    'elsker',
-    'eng',
-    'fabrik',
-    'fabrik',
-    'koldsved',
-    'kongeørn',
-    'mejse',
-    'opera',
-    'planet',
-    'plante',
-    'regnbue',
-    'solstråle',
-    'stødpude',
-    'tanke',
-    'tiger',
-    'torden',
-    'tåge',
-    'venten'
-];
+    const en = [
+        'dans',
+        'elsker',
+        'eng',
+        'fabrik',
+        'fabrik',
+        'koldsved',
+        'kongeørn',
+        'mejse',
+        'opera',
+        'planet',
+        'plante',
+        'regnbue',
+        'solstråle',
+        'stødpude',
+        'tanke',
+        'tiger',
+        'torden',
+        'tåge',
+        'venten'
+    ];
 
-const et = [
-    'blik',
-    'digt',
-    'håb',
-    'omsvøb',
-    'sind',
-    'vers',
-    'ønske'
-];
+    const et = [
+        'blik',
+        'digt',
+        'håb',
+        'omsvøb',
+        'sind',
+        'vers',
+        'ønske'
+    ];
 
-
-$(() => {
-    function pick(words) {
+    function pickFrom(words) {
         let index = Math.round(Math.random() * (words.length - 1));
         let word = words[index];
         words.splice(index, 1); // remove picked word from array
@@ -78,14 +77,14 @@ $(() => {
     }
 
     let poem = '',
-        adjective = pick(adjectives),
-        noun = pick(en);
+        adjective = pickFrom(adjectives),
+        noun = pickFrom(en);
 
     while (adjective && noun) {
         poem += 'en ' + adjective + ' ' + noun + ' <br>';
-        adjective = pick(adjectives);
-        noun = pick(en);
+        adjective = pickFrom(adjectives);
+        noun = pickFrom(en);
     }
 
-    $('#digt').append(poem)
-});
+    document.getElementById('digt').innerHTML = poem;
+}());
