@@ -37,7 +37,6 @@
         'elsker',
         'eng',
         'fabrik',
-        'fabrik',
         'koldsved',
         'kongeørn',
         'mejse',
