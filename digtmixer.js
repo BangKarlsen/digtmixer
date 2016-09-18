@@ -1,6 +1,13 @@
+/*
+    Idéer:
+    Lav forskellige ordlister, og slides man kan skrue på for at justere hvor meget fra hver der skal pickes, 
+    eks: dyster, space, varm, natur, industriel, apatisk
+*/
+
 (function () {
     const adjectives = [
         'absolut',
+        'falleret',
         'falmende',
         'finurlig',
         'flygtig',
@@ -25,15 +32,17 @@
         'tøvende',
         'unaturlig',
         'varm',
-        'varsom',
+        'varsom'
         // 'eksalteret',
-        // 'falleret',
         // 'ophøjet',
         // 'ublu',
+        // 'smuk',
+        // 'lykkelig'
     ];
 
     const en = [
         'dans',
+        'drømmefanger',
         'elsker',
         'eng',
         'fabrik',
@@ -45,11 +54,13 @@
         'plante',
         'regnbue',
         'solstråle',
+        'stund',
         'stødpude',
         'tanke',
         'tiger',
         'torden',
         'tåge',
+        'vandrer',
         'venten'
     ];
 
@@ -72,7 +83,7 @@
 
     if (adjectives.length !== en.length + et.length) {
         console.error('mismatch word arrays (' + adjectives.length + ' != ' + (et.length + en.length) + ')');
-        return;
+      //  return;
     }
 
     let poem = '',
