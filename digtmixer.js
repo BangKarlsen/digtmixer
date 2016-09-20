@@ -81,11 +81,6 @@
         return word;
     }
 
-    if (adjectives.length !== en.length + et.length) {
-        console.error('mismatch word arrays (' + adjectives.length + ' != ' + (et.length + en.length) + ')');
-      //  return;
-    }
-
     let poem = '',
         adjective = pickFrom(adjectives),
         noun = pickFrom(en);
