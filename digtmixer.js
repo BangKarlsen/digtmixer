@@ -5,7 +5,7 @@
 */
 
 (function () {
-    const adjectives = [
+    let adjectives = [
         'absolut',
         'falleret',
         'falmende',
@@ -40,12 +40,13 @@
         // 'lykkelig'
     ];
 
-    const en = [
+    let en = [
         'dans',
         'drømmefanger',
         'elsker',
         'eng',
         'fabrik',
+        'hugtand',
         'koldsved',
         'kongeørn',
         'mejse',
@@ -64,7 +65,7 @@
         'venten'
     ];
 
-    const et = [
+    let et = [
         'blik',
         'digt',
         'håb',
@@ -74,22 +75,52 @@
         'ønske'
     ];
 
-    function pickFrom(words) {
-        let index = Math.round(Math.random() * (words.length - 1));
-        let word = words[index];
-        words.splice(index, 1); // remove picked word from array
-        return word;
+    let start = null;
+    const adjectivesFull = adjectives.slice(),
+        enFull = en.slice();
+
+    function pickElement(array) {
+        let index = Math.round(Math.random() * (array.length - 1));
+        let element = array[index];
+        array.splice(index, 1); // remove picked element from array
+        return element;
     }
 
-    let poem = '',
-        adjective = pickFrom(adjectives),
-        noun = pickFrom(en);
-
-    while (adjective && noun) {
-        poem += 'en ' + adjective + ' ' + noun + ' <br>';
-        adjective = pickFrom(adjectives);
-        noun = pickFrom(en);
+    function getElement(array) {
+        let index = Math.round(Math.random() * (array.length - 1));
+        return array[index];
     }
 
-    document.getElementById('digt').innerHTML = poem;
+    function createPoem() {
+        let poem = '',
+            poemLength = getElement([ 3, 5, 6, 7 ]);
+
+        for(let i = 0; i < poemLength; i++) {
+            let adjective = pickElement(adjectives),
+                noun = pickElement(en);            
+
+            if (!adjective) {
+                adjectives = adjectivesFull.slice();
+                adjective = pickElement(adjectives);
+            }
+            if (!noun) {
+                en = enFull.slice();
+                noun = pickElement(en);
+            }
+            poem += 'en ' + adjective + ' ' + noun + '<br/>';
+        }
+        return poem;
+    }
+
+    function animate(timestamp) {
+        if (!start) start = timestamp;
+        var interval = timestamp - start;
+        if (interval > 4000) {
+            start = timestamp;
+            document.getElementById('digt').innerHTML = createPoem();
+        }
+        window.requestAnimationFrame(animate);
+    }
+
+    window.requestAnimationFrame(animate);
 }());
