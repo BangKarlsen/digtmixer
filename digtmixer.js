@@ -115,7 +115,7 @@
     function animate(timestamp) {
         if (!start) start = timestamp;
         var interval = timestamp - start;
-        if (interval > 4000) {
+        if (interval > 7000) {
             start = timestamp;
             document.getElementById('digt').innerHTML = createPoem();
         }
