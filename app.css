@@ -1,3 +1,5 @@
+@import 'https://fonts.googleapis.com/css?family=Allura|Amatic+SC|Caveat+Brush|Cookie|Courgette|Dancing+Script|Gloria+Hallelujah|Great+Vibes|Homemade+Apple|Inconsolata|Indie+Flower|Pacifico|Pinyon+Script|Reenie+Beanie|Roboto+Mono|Sacramento|Satisfy|Shadows+Into+Light|Source+Code+Pro|Space+Mono|VT323|Walter+Turncoat';
+
 body {
     margin: 250;
 }
@@ -7,4 +9,5 @@ body {
     justify-content:center;
     align-items:center;
     font-size:65px;
+    font-family: 'Indie Flower';
 }

@@ -1,14 +1,42 @@
 /*
     Idéer:
     Lav forskellige ordlister, og slides man kan skrue på for at justere hvor meget fra hver der skal pickes, 
-    eks: dyster, space, varm, natur, industriel, apatisk
+    eks: dyster, space, varm, natur, industriel, apatisk. 
+    Eller bare to modes: Romantisk og Rum-antisk
+
+    Lav det til en haiku generator
 */
 
 (function () {
+    const fontFamilies = [
+        'Indie Flower',
+        'Amatic SC',
+        // 'Pacifico',
+        // 'Inconsolata',
+        // 'Caveat Brush',
+        // 'Dancing Script',
+        // 'Shadows Into Light',
+        'Roboto Mono',
+        // 'Gloria Hallelujah', men måske aligevel
+        // 'Source Code Pro',
+        // 'Satisfy',
+        // 'Courgette',
+        // 'Cookie',
+        'Great Vibes',
+        'Space Mono',
+        'Homemade Apple',
+        'Sacramento',
+        'VT323',
+        'Allura',
+        'Pinyon Script',
+        'Reenie Beanie',
+        'Walter Turncoat'
+    ];
+
     let adjectives = [
-        'absolut',
         'falleret',
         'falmende',
+        'famlende',
         'finurlig',
         'flygtig',
         'forbigående',
@@ -18,6 +46,7 @@
         'galaktisk',
         'hungrende',
         'kold',
+        'konform',
         'langsom',
         'lilla',
         'luftig',
@@ -46,6 +75,7 @@
         'elsker',
         'eng',
         'fabrik',
+        'firewall',
         'hugtand',
         'koldsved',
         'kongeørn',
@@ -56,7 +86,6 @@
         'regnbue',
         'solstråle',
         'stund',
-        'stødpude',
         'tanke',
         'tiger',
         'torden',
@@ -88,12 +117,13 @@
 
     function getElement(array) {
         let index = Math.round(Math.random() * (array.length - 1));
+        console.log('selected: ' + array[index]);
         return array[index];
     }
 
     function createPoem() {
         let poem = '',
-            poemLength = getElement([ 3, 5, 6, 7 ]);
+            poemLength = getElement([ 3]);
 
         for(let i = 0; i < poemLength; i++) {
             let adjective = pickElement(adjectives),
@@ -117,7 +147,9 @@
         var interval = timestamp - start;
         if (interval > 7000) {
             start = timestamp;
-            document.getElementById('digt').innerHTML = createPoem();
+            let poemNode = document.getElementById('digt');
+            poemNode.innerHTML = createPoem();
+            poemNode.style.fontFamily = getElement(fontFamilies);
         }
         window.requestAnimationFrame(animate);
     }
