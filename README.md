@@ -1,3 +1,3 @@
 # digtmixer
 
-En lille stump kode, som skaber billeder i dit hoved'.
+En lille stump kode, som skaber billeder i dit hoved.
