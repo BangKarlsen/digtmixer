@@ -43,6 +43,7 @@
         'forfløjen',
         'forkert',
         'fragmenteret',
+        'funklende',
         'galaktisk',
         'hungrende',
         'kold',
