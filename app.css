@@ -8,6 +8,7 @@ body {
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:65px;
+    /*font-size: 65px;*/
+    font-size: 4vw;
     font-family: 'Indie Flower';
 }
