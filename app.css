@@ -1,14 +1,30 @@
 @import 'https://fonts.googleapis.com/css?family=Allura|Amatic+SC|Caveat+Brush|Cookie|Courgette|Dancing+Script|Gloria+Hallelujah|Great+Vibes|Homemade+Apple|Inconsolata|Indie+Flower|Pacifico|Pinyon+Script|Reenie+Beanie|Roboto+Mono|Sacramento|Satisfy|Shadows+Into+Light|Source+Code+Pro|Space+Mono|VT323|Walter+Turncoat';
-
 body {
     margin: 250;
 }
 
 #digt {
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /*font-size: 65px;*/
     font-size: 4vw;
     font-family: 'Indie Flower';
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+}
+
+.fader {
+    animation-duration: 5s;
+    animation-name: fadeIn;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in;
 }

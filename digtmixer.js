@@ -122,7 +122,7 @@
         return array[index];
     }
 
-    function createPoem() {
+    function generateText() {
         let poem = '',
             poemLength = getElement([ 3]);
 
@@ -143,17 +143,22 @@
         return poem;
     }
 
+    function createPoem() {
+        let poemNode = document.getElementById('digt');
+        poemNode.innerHTML = generateText();
+        poemNode.style.fontFamily = getElement(fontFamilies);
+    }
+
     function animate(timestamp) {
         if (!start) start = timestamp;
         var interval = timestamp - start;
-        if (interval > 7000) {
+        if (interval > 10000) {
             start = timestamp;
-            let poemNode = document.getElementById('digt');
-            poemNode.innerHTML = createPoem();
-            poemNode.style.fontFamily = getElement(fontFamilies);
+            createPoem();
         }
         window.requestAnimationFrame(animate);
     }
 
     window.requestAnimationFrame(animate);
+    createPoem();
 }());
